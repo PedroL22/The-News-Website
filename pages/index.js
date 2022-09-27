@@ -24,19 +24,24 @@ export default function Home({ newsData }) {
 			<NavBar />
 			<div className="mx-auto max-w-7xl">
 				{newsData.map((news) => (
-					<div key={news.id} className="bg-gray-200 p-5 m-5">
+					<div key={news.id} className="m-5 flex">
 						<a href={news.webUrl}>
-							<h1 className="text-3xl font-medium">{news.webTitle}</h1>
 							<img
 								src={news.blocks.main.elements[0].assets[0]?.file}
 								alt="news image"
+								className="w-96 h-56 object-cover mr-5"
 							/>
 						</a>
-						<h1 className="text-3xl font-medium">
-							{news.blocks.body[0].bodyTextSummary}
-						</h1>
-						<h1 className="text-3xl font-medium">{news.webPublicationDate}</h1>
-						<h1 className="text-3xl font-medium">{news.sectionName}</h1>
+						<div className="block">
+							<p className="font-medium">{news.sectionName}</p>
+							<h1 className="w-80 text-2xl text-red-700 font-bold">
+								{news.webTitle.substring(0, 75)}
+							</h1>
+							<p className="w-96">
+								{news.blocks.body[0].bodyTextSummary.substring(0, 150)}...
+							</p>
+							<p className="text-sm text-gray-600">{news.webPublicationDate}</p>
+						</div>
 					</div>
 				))}
 			</div>
