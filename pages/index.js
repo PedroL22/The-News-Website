@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import NavBar from "../components/NavBar";
 
 export async function getStaticProps() {
@@ -25,18 +25,21 @@ export default function Home({ newsData }) {
 			<div className="mx-auto max-w-7xl">
 				{newsData.map((news) => (
 					<div key={news.id} className="m-5 flex">
-						<a href={news.webUrl}>
+						<Link href="#">
 							<img
-								src={news.blocks.main.elements[0].assets[0]?.file}
+								src={news.blocks.main?.elements[0].assets[0]?.file}
 								alt="news image"
 								className="w-96 h-56 object-cover mr-5"
 							/>
-						</a>
+						</Link>
 						<div className="block">
 							<p className="font-medium">{news.sectionName}</p>
-							<h1 className="w-80 text-2xl text-red-700 font-bold">
-								{news.webTitle.substring(0, 75)}
-							</h1>
+							<Link href="#">
+								<h1 className="w-80 text-2xl text-red-700 font-bold">
+									{news.webTitle.substring(0, 75)}
+								</h1>
+							</Link>
+
 							<p className="w-96">
 								{news.blocks.body[0].bodyTextSummary.substring(0, 150)}...
 							</p>
