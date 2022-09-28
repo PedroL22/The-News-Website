@@ -1,18 +1,48 @@
 import Head from "next/head";
 import Link from "next/link";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-export async function getStaticProps() {
-	const data = await fetch(
-		"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all"
-	);
-	const news = await data.json();
-	const newsData = news.response.results;
+export default function Home() {
+	const [theNews, setTheNews] = useState([
+		"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all",
+	]);
 
-	console.log(newsData.blocks?.main.publishedDate);
-	return { props: { newsData } };
-}
+	const showData = useEffect(() => {
+		const fetchData = () => {
+			axios.get(theNews).then((res) => {
+				setTheNews(res.data.response.results);
+			});
+		};
+		fetchData();
+	});
 
-export default function Home({ newsData }) {
+	const newsOne = () => {
+		setTheNews([
+			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=1",
+		]);
+	};
+	const newsTwo = () => {
+		setTheNews([
+			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=2",
+		]);
+	};
+	const newsThree = () => {
+		setTheNews([
+			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=3",
+		]);
+	};
+	const newsFour = () => {
+		setTheNews([
+			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=4",
+		]);
+	};
+	const newsFive = () => {
+		setTheNews([
+			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=5",
+		]);
+	};
+
 	return (
 		<div className="">
 			<Head>
@@ -21,30 +51,63 @@ export default function Home({ newsData }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="mx-auto max-w-7xl">
-				{newsData.map((news) => (
+				<Link href="/search">Search</Link>
+				{theNews.map((news) => (
 					<div key={news.id} className="m-5 flex">
-						<Link href={`/news/${news.blocks.main.id}`}>
+						<a href={news.webUrl} target="_blank" rel="noreferrer">
 							<img
-								src={news.blocks.main?.elements[0].assets[0]?.file}
+								src={news.blocks?.main?.elements[0].assets[0]?.file}
 								alt="news image"
 								className="w-96 h-56 object-cover mr-5 cursor-pointer"
 							/>
-						</Link>
+						</a>
 						<div className="block">
 							<p className="font-medium">{news.sectionName}</p>
-							<Link href={`/news/${news.blocks.main.id}`}>
+							<a href={news.webUrl} target="_blank" rel="noreferrer">
 								<h1 className="w-80 text-2xl text-red-700 font-bold cursor-pointer">
-									{news.webTitle.substring(0, 75)}
+									{news.webTitle?.substring(0, 75)}
 								</h1>
-							</Link>
+							</a>
 
 							<p className="w-96">
-								{news.blocks.body[0].bodyTextSummary.substring(0, 150)}...
+								{news.blocks?.body[0].bodyTextSummary.substring(0, 150)}...
 							</p>
 							<p className="text-sm text-gray-600">{news.webPublicationDate}</p>
 						</div>
 					</div>
 				))}
+				<div className="flex ml-5">
+					<button
+						className="bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75"
+						onClick={newsOne}
+					>
+						1
+					</button>
+					<button
+						className="bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75"
+						onClick={newsTwo}
+					>
+						2
+					</button>
+					<button
+						className="bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75"
+						onClick={newsThree}
+					>
+						3
+					</button>
+					<button
+						className="bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75"
+						onClick={newsFour}
+					>
+						4
+					</button>
+					<button
+						className="bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75"
+						onClick={newsFive}
+					>
+						5
+					</button>
+				</div>
 			</div>
 		</div>
 	);
