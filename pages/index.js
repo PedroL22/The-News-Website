@@ -68,7 +68,7 @@ export default function Home() {
 					onChange={(e) => setQuery(e.target.value)}
 					value={query}
 					onKeyPress={search}
-					className="ml-5 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white"
+					className="ml-5 mt-20 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white"
 				/>
 				{theNews.map((news) => (
 					<div key={news.id} className="m-5 xl:flex">
