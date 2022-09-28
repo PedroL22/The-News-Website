@@ -7,6 +7,7 @@ export default function Home() {
 	const [theNews, setTheNews] = useState([
 		"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all",
 	]);
+	const [query, setQuery] = useState();
 
 	const showData = useEffect(() => {
 		const fetchData = () => {
@@ -22,24 +23,34 @@ export default function Home() {
 			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=1",
 		]);
 	};
+
 	const newsTwo = () => {
 		setTheNews([
 			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=2",
 		]);
 	};
+
 	const newsThree = () => {
 		setTheNews([
 			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=3",
 		]);
 	};
+
 	const newsFour = () => {
 		setTheNews([
 			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=4",
 		]);
 	};
+
 	const newsFive = () => {
 		setTheNews([
 			"https://content.guardianapis.com/search?api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all&page=5",
+		]);
+	};
+
+	const search = () => {
+		setTheNews([
+			`https://content.guardianapis.com/search?q=${query}&api-key=4c444140-8216-4eb9-a8a0-5392b4af62ae&show-blocks=all`,
 		]);
 	};
 
@@ -51,7 +62,14 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="mx-auto max-w-7xl">
-				<Link href="/search">Search</Link>
+				<input
+					type="text"
+					className=""
+					placeholder="Search..."
+					onChange={(e) => setQuery(e.target.value)}
+					value={query}
+					onKeyPress={search}
+				/>
 				{theNews.map((news) => (
 					<div key={news.id} className="m-5 flex">
 						<a href={news.webUrl} target="_blank" rel="noreferrer">
