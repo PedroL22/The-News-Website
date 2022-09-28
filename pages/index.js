@@ -64,11 +64,11 @@ export default function Home() {
 			<div className="mx-auto max-w-7xl">
 				<input
 					type="text"
-					className=""
 					placeholder="Search..."
 					onChange={(e) => setQuery(e.target.value)}
 					value={query}
 					onKeyPress={search}
+					className="ml-5 bg-gray-200 p-3 w-96 rounded-xl outline-1 outline-red-300 focus:bg-white"
 				/>
 				{theNews.map((news) => (
 					<div key={news.id} className="m-5 flex">
