@@ -68,10 +68,10 @@ export default function Home() {
 					onChange={(e) => setQuery(e.target.value)}
 					value={query}
 					onKeyPress={search}
-					className="ml-5 bg-gray-200 p-3 w-96 rounded-xl outline-1 outline-red-300 focus:bg-white"
+					className="ml-5 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white"
 				/>
 				{theNews.map((news) => (
-					<div key={news.id} className="m-5 flex">
+					<div key={news.id} className="m-5 xl:flex">
 						<a href={news.webUrl} target="_blank" rel="noreferrer">
 							<img
 								src={news.blocks?.main?.elements[0].assets[0]?.file}
@@ -80,17 +80,19 @@ export default function Home() {
 							/>
 						</a>
 						<div className="block">
-							<p className="font-medium">{news.sectionName}</p>
+							<p className="font-medium mt-2 xl:mt-0">{news.sectionName}</p>
 							<a href={news.webUrl} target="_blank" rel="noreferrer">
-								<h1 className="w-80 text-2xl text-red-700 font-bold cursor-pointer">
+								<h1 className="xl:w-80 text-2xl text-red-700 font-bold cursor-pointer">
 									{news.webTitle?.substring(0, 75)}
 								</h1>
 							</a>
 
-							<p className="w-96">
+							<p className="xl:w-96">
 								{news.blocks?.body[0].bodyTextSummary.substring(0, 150)}...
 							</p>
-							<p className="text-sm text-gray-600">{news.webPublicationDate}</p>
+							<p className="text-sm text-gray-600 mb-5 xl:mb-0">
+								{news.webPublicationDate}
+							</p>
 						</div>
 					</div>
 				))}
