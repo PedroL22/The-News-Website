@@ -12,7 +12,7 @@ export default function account() {
 					<title>{session.user.name} - The News Website</title>
 					<meta
 						name="description"
-						content="A news website with The Guardian API."
+						content="A news website made with The Guardian API, Next JS, and Tailwind CSS based on Globo's G1."
 					/>
 					<link rel="icon" href="/favicon.png" />
 				</Head>
@@ -46,7 +46,7 @@ export default function account() {
 					<title>The News Website</title>
 					<meta
 						name="description"
-						content="A news website with The Guardian API."
+						content="A news website made with The Guardian API, Next JS, and Tailwind CSS based on Globo's G1."
 					/>
 					<link rel="icon" href="/favicon.png" />
 				</Head>
