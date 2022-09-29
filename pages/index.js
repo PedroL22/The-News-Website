@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -88,7 +87,7 @@ export default function Home() {
 							</a>
 
 							<p className="xl:w-96">
-								{news.blocks?.body[0].bodyTextSummary.substring(0, 150)}...
+								{news.blocks?.body[0]?.bodyTextSummary.substring(0, 150)}...
 							</p>
 							<p className="text-sm text-gray-600 mb-5 xl:mb-0">
 								{news.webPublicationDate}

@@ -1,10 +1,13 @@
 import NavBar from "./NavBar";
+import { SessionProvider } from "next-auth/react";
 
-export default function MainContainer({ children }) {
+export default function MainContainer({ children, session }) {
 	return (
 		<>
-			<NavBar />
-			<div>{children}</div>
+			<SessionProvider session={session}>
+				<NavBar />
+				<div>{children}</div>
+			</SessionProvider>
 		</>
 	);
 }
