@@ -4,7 +4,7 @@ https://the-news-website.vercel.app/
 A news website made with The Guardian API, Next JS, and Tailwind CSS based on Globo's G1.
 
 **MAIN FEATURES** <br />
--API fetch from [The Guardian API](https://open-platform.theguardian.com/) <br />
+-API data from [The Guardian API](https://open-platform.theguardian.com/) <br />
 -Data searching <br />
 -Data pagination <br />
 -Social media login <br />
