@@ -14,7 +14,7 @@ export default function account() {
 						name="description"
 						content="A news website with The Guardian API."
 					/>
-					<link rel="icon" href="/favicon.ico" />
+					<link rel="icon" href="/favicon.png" />
 				</Head>
 
 				<div className="xl:pt-36 pt-20 xl:ml-5 xl:flex block">
@@ -48,7 +48,7 @@ export default function account() {
 						name="description"
 						content="A news website with The Guardian API."
 					/>
-					<link rel="icon" href="/favicon.ico" />
+					<link rel="icon" href="/favicon.png" />
 				</Head>
 
 				<div className="pt-20 ml-5">
