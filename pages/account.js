@@ -28,7 +28,7 @@ export default function account() {
 							{session.user.email}
 						</p>
 						<Link href="/">
-							<button className="flex mt-2 mx-auto xl:ml-20 text-white bg-red-700 rounded-md px-5 py-2 hover:bg-red-800 transition-all ease-in duration-75">
+							<button className="flex mt-2 mx-auto xl:ml-24 text-white bg-red-700 rounded-md px-5 py-2 hover:bg-red-800 transition-all ease-in duration-75">
 								Back
 							</button>
 						</Link>
