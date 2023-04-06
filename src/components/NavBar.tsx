@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import { usePageNumber } from '@/stores/pageStore'
 import { useSearchValue } from '@/stores/searchStore'
-import Link from 'next/link'
 
 export const NavBar = () => {
   const { resetSearchValue } = useSearchValue()

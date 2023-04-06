@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import { ReactNode } from 'react'
+import Head from 'next/head'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NavBar } from './NavBar'
 import { Aside } from './Aside'

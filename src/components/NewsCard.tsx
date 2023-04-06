@@ -17,8 +17,11 @@ export const NewsCard = ({ news }: NewsCardProps) => {
         rel='noreferrer'
       >
         <img
-          src={news.blocks?.main?.elements[0].assets[0]?.file}
-          alt='news image'
+          src={
+            news.blocks?.main?.elements[0].assets[0]?.file ??
+            'https://markhamrealty.com/wp-content/uploads/2023/01/no-image.jpg'
+          }
+          alt=''
           className='w-96 h-56 object-cover mr-5 cursor-pointer'
         />
       </a>
