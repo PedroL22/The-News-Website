@@ -4,6 +4,8 @@ import { NewsEntity } from '@/entities/NewsEntity'
 
 import { requestAllNews } from '@/clients/NewsClient'
 
-export const useFetchAllNews = () => {
-  return useQuery<NewsEntity[]>(['ALL-NEWS'], requestAllNews)
+export const useFetchAllNews = (searchValue: string) => {
+  return useQuery<NewsEntity[]>(['ALL-NEWS', searchValue], () =>
+    requestAllNews(searchValue)
+  )
 }

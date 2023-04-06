@@ -2,16 +2,21 @@ import { useState } from 'react'
 import { useFetchAllNews } from '@/hooks/useQueryNews'
 
 export default function Home() {
-  const [query, setQuery] = useState()
+  const [searchValue, setSearchValue] = useState('')
 
-  const { data, isLoading } = useFetchAllNews()
-
-  console.log(data)
+  const { data, isLoading } = useFetchAllNews(searchValue)
 
   if (isLoading) {
     return (
       <div className='mx-auto max-w-7xl'>
-        <p> Loading...</p>
+        <input
+          type='text'
+          placeholder='Search...'
+          onChange={(e) => setSearchValue(e.target.value)}
+          value={searchValue}
+          className='ml-5 mt-20 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white'
+        />
+        <p>Loading...</p>
       </div>
     )
   }
@@ -21,9 +26,8 @@ export default function Home() {
       <input
         type='text'
         placeholder='Search...'
-        onChange={(e) => setQuery(e.target.value)}
-        value={query}
-        //onKeyPress={search}
+        onChange={(e) => setSearchValue(e.target.value)}
+        value={searchValue}
         className='ml-5 mt-20 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white'
       />
       {data &&
