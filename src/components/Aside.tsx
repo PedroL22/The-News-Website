@@ -1,7 +1,7 @@
 import { GrLinkedinOption } from 'react-icons/gr'
 import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
 
-export default function Aside() {
+export const Aside = () => {
   return (
     <aside className='fixed xl:right-24 xl:mt-24 bottom-1'>
       <div className='block justify-around pb-6 '>

@@ -2,7 +2,7 @@ import { usePageNumber } from '@/stores/pageStore'
 import { useSearchValue } from '@/stores/searchStore'
 import Link from 'next/link'
 
-export default function NavBar() {
+export const NavBar = () => {
   const { resetSearchValue } = useSearchValue()
   const { resetPageNumber } = usePageNumber()
 

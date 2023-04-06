@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import { ReactNode } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import NavBar from './NavBar'
-import Aside from './Aside'
+import { NavBar } from './NavBar'
+import { Aside } from './Aside'
 
 type MainContainerProps = {
   children: ReactNode
 }
 
-export default function MainContainer({ children }: MainContainerProps) {
+export const MainContainer = ({ children }: MainContainerProps) => {
   const queryClient = new QueryClient()
 
   return (
