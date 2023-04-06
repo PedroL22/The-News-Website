@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import { useFetchAllNews } from '@/hooks/useQueryNews'
+import { useSearchValue } from '@/stores/searchStore'
+import { usePageNumber } from '@/stores/pageStore'
 
 export default function Home() {
-  const [searchValue, setSearchValue] = useState('')
-  const [pageNumber, setPageNumber] = useState(1)
+  const { searchValue, setSearchValue } = useSearchValue()
+  const { pageNumber, setPageNumber } = usePageNumber()
 
   const { data, isLoading } = useFetchAllNews(searchValue, pageNumber)
 
