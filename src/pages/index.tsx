@@ -3,8 +3,9 @@ import { useFetchAllNews } from '@/hooks/useQueryNews'
 
 export default function Home() {
   const [searchValue, setSearchValue] = useState('')
+  const [pageNumber, setPageNumber] = useState(1)
 
-  const { data, isLoading } = useFetchAllNews(searchValue)
+  const { data, isLoading } = useFetchAllNews(searchValue, pageNumber)
 
   if (isLoading) {
     return (
@@ -68,37 +69,59 @@ export default function Home() {
             </div>
           </div>
         ))}
-      <div className='flex ml-5'>
-        <button
-          className='bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75'
-          //onClick={newsOne}
-        >
-          1
-        </button>
-        <button
-          className='bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75'
-          //onClick={newsTwo}
-        >
-          2
-        </button>
-        <button
-          className='bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75'
-          //onClick={newsThree}
-        >
-          3
-        </button>
-        <button
-          className='bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75'
-          //onClick={newsFour}
-        >
-          4
-        </button>
-        <button
-          className='bg-gray-300 p-4 mr-2 mb-5 hover:bg-gray-400 ease-in transition-all duration-75'
-          //onClick={newsFive}
-        >
-          5
-        </button>
+      <div className='flex justify-center'>
+        <div>
+          <button
+            className={`${
+              pageNumber === 1
+                ? 'bg-gray-400 hover:bg-gray-500'
+                : 'bg-gray-300 hover:bg-gray-400'
+            } p-4 mr-2 mb-5 ease-in transition-all duration-75`}
+            onClick={() => setPageNumber(1)}
+          >
+            1
+          </button>
+          <button
+            className={`${
+              pageNumber === 2
+                ? 'bg-gray-400 hover:bg-gray-500'
+                : 'bg-gray-300 hover:bg-gray-400'
+            } p-4 mr-2 mb-5 ease-in transition-all duration-75`}
+            onClick={() => setPageNumber(2)}
+          >
+            2
+          </button>
+          <button
+            className={`${
+              pageNumber === 3
+                ? 'bg-gray-400 hover:bg-gray-500'
+                : 'bg-gray-300 hover:bg-gray-400'
+            } p-4 mr-2 mb-5 ease-in transition-all duration-75`}
+            onClick={() => setPageNumber(3)}
+          >
+            3
+          </button>
+          <button
+            className={`${
+              pageNumber === 4
+                ? 'bg-gray-400 hover:bg-gray-500'
+                : 'bg-gray-300 hover:bg-gray-400'
+            } p-4 mr-2 mb-5 ease-in transition-all duration-75`}
+            onClick={() => setPageNumber(4)}
+          >
+            4
+          </button>
+          <button
+            className={`${
+              pageNumber === 5
+                ? 'bg-gray-400 hover:bg-gray-500'
+                : 'bg-gray-300 hover:bg-gray-400'
+            } p-4 mr-2 mb-5 ease-in transition-all duration-75`}
+            onClick={() => setPageNumber(5)}
+          >
+            5
+          </button>
+        </div>
       </div>
     </div>
   )
