@@ -17,7 +17,30 @@ export default function Home() {
           value={searchValue}
           className='ml-5 mt-20 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white'
         />
-        <p>Loading...</p>
+        <div className='h-screen'>
+          <img
+            src='/loading-buffering.gif'
+            alt='loading'
+            className='flex mx-auto w-24 pt-[25vh]'
+          />
+        </div>
+      </div>
+    )
+  }
+
+  if (data?.length == 0) {
+    return (
+      <div className='mx-auto max-w-7xl'>
+        <input
+          type='text'
+          placeholder='Search...'
+          onChange={(e) => setSearchValue(e.target.value)}
+          value={searchValue}
+          className='ml-5 mt-20 bg-gray-200 p-3 xl:w-96 w-[90vw] rounded-xl outline-1 outline-red-300 focus:bg-white'
+        />
+        <div className='flex justify-center h-screen'>
+          <p className='text-lg w-24 pt-[25vh]'>No results</p>
+        </div>
       </div>
     )
   }
@@ -64,7 +87,14 @@ export default function Home() {
                 {news.blocks?.body?.[0]?.bodyTextSummary.substring(0, 150)}...
               </p>
               <p className='text-sm text-gray-600 mb-5 xl:mb-0'>
-                {news.webPublicationDate}
+                {new Date(news.webPublicationDate).toLocaleString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
+                  hour12: true,
+                })}
               </p>
             </div>
           </div>
