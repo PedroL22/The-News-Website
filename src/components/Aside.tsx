@@ -3,7 +3,7 @@ import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
 
 export const Aside = () => {
   return (
-    <aside className='fixed xl:right-24 xl:mt-24 bottom-1'>
+    <aside className='fixed bottom-1 xl:right-24 xl:mt-24'>
       <div className='block justify-around pb-6 '>
         <a
           href='https://www.linkedin.com/in/pedrolucena22/'
